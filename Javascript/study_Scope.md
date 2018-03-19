@@ -63,8 +63,8 @@ console.log(randomDataFuns[5]());  //??
 - while문 조건 true 반복문 실행
 - if 조건문 funs변수의 길이가 9보다 작으면 멈춘다.
 - 변수 `rValue`에서 랜덤 값random()* 10]을 생성
-- `funs`.push 메서드로 함수의 매개변수가 `rValue`값을 반환 
-</br>
+- `funs`.push 메서드로 함수의 매개변수가 `rValue`값을 반환
+
 ------------- 반복 끝(조건문에 부합되면) ------------- </br>
 
 -  조건문 배열 `funs`의 길이가 10이되면 멈춤
