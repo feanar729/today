@@ -33,11 +33,11 @@
 // const result = plus();
 // console.log("result", result);
 
-const baseData = [1,2,3,4,5,6,100];
+const baseData = [1, 2, 3, 4, 5, 6, 100];
 
 // case 1:
 const asyncRun = (arr, fn) => {
-  for(var i = 0; i < arr.length; i++){
+  for (var i = 0; i < arr.length; i++) {
     setTimeout(() => {
       fn(i);
     }, 1000);
@@ -89,4 +89,3 @@ asyncRun(baseData, idx => console.log(idx));
 // call stack에서 setTimeout이 없어지고, 그 다음 animate함수가 없어지고, global Context가 없어져 call stack 이 비어지면
 // Event Loop가 Queue에 담겨진 animate함수를 끌어다 call stack에 옮겨지고 animate()함수가 실행된다.
 // 다시 animate() 함수가 실행되면 그 안에 다시 setTimeout이 실행되고 위와 반복되어 끝나지 않고 계속 진행된다.
-
