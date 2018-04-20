@@ -53,8 +53,8 @@ myFunction(); // print 5, 7
 ## let
 - let은 Block-level-scope( 코드블럭 {} 안에 선언된 변수는 코드블럭 내부에서만 유효하고 외부로 참조할 수 없다)이다.
 - let은 초기화 이후 재할당이 자유롭다 하지만 중복선언이 불가하다
-> 참고: 블록스코프인 let도 호이스팅이 된다. 그렇지만 선언 전에 참조할 경우 undefined를 반환하지 않고 ReferenceError를 발생시키는 특징이 있다.
-> 출처: http://meetup.toast.com/posts/86
+  > 참고: 블록스코프인 let도 호이스팅이 된다. 그렇지만 선언 전에 참조할 경우 undefined를 반환하지 않고 ReferenceError를 발생시키는 특징이 있다.
+  > 출처: http://meetup.toast.com/posts/86
 ```
 let greeting = "say hi";
 greeting = "say hello";
