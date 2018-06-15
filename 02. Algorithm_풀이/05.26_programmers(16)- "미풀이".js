@@ -38,6 +38,7 @@ console.log(result);
 //   } else {
 //     console.log("none 윤년");
 //   }
+// }
 
 // 해결 과정
 // 요일 구하기 계산 공식을 찾아봄
