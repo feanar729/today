@@ -1,4 +1,6 @@
 # TIL (Today I Learned)
+## Trello 스케줄 + 느낀점: [링크 click](https://trello.com/b/HhHGPYlh/%EC%8A%A4%EC%BC%80%EC%A4%84)
+
 - 공부한 파일을 마크다운으로 작성해 업로드
 - 현재 Javascript 위주로 공부하여 JS 위주로 업로드 예정
 - 당일 계획 및 계획표를 `Trello`에 추가 및 과정 종료시 까지 계속 업로드 할 계획
@@ -7,9 +9,7 @@
 
 - 트릴로에 정리 & 일정 등을 적어보고 하루 review를 진행함</br>
 - 정규 수업이 있을시 기록을 남기고 느낀점은 트릴로에 정리해보기로 함(04.09일자부터)
-- 여기에 있는 모든 글들은 계속해서 부족한 점은 보완해 나갈 예정
-
-Trello 스케줄 + 느낀점: [링크 click](https://trello.com/b/HhHGPYlh/%EC%8A%A4%EC%BC%80%EC%A4%84)
+- 모든 일정 및 글을 trello에 기록 및 정리
 
 ## Javascript
 - [클린코드에 대하여](https://github.com/feanar729/TIL/blob/master/Javascript/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C%EC%97%90%20%EB%8C%80%ED%95%98%EC%97%AC.md)

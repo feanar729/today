@@ -34,9 +34,9 @@ function getResult(number, scale) {
 
 
 
-function equal (numberList, binary){
-  for(let i = 0; i < numberList.length; i++){
-    if(getResult(numberList[i], binary) !== (numberList[i]).toString(binary)){
+function equal(numberList, binary) {
+  for (let i = 0; i < numberList.length; i++) {
+    if (getResult(numberList[i], binary) !== (numberList[i]).toString(binary)) {
       return false;
     }
   }
@@ -44,4 +44,3 @@ function equal (numberList, binary){
 }
 
 console.log(equal([11, 12, 13, 14], 2));
-
