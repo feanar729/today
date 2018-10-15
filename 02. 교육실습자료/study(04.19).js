@@ -3,17 +3,17 @@
 */
 
 // 동기
-// const baseData = [1,2,3,4,5,6,100];
+// const baseData = [1, 2, 3, 4, 5, 6, 100];
 
 // function foo() {
-//   baseData.forEach((v,i) => {
+//   baseData.forEach((v, i) => {
 //     console.log("sync", i);
 //     bar();
 //   });
 // }
 
 // function bar() {
-//   baseData.forEach((v,i) => {
+//   baseData.forEach((v, i) => {
 //     debugger;
 //     console.log("sync2", i);
 //   });
@@ -35,7 +35,22 @@
 
 const baseData = [1, 2, 3, 4, 5, 6, 100];
 
-// case 1:
+// case 1과 case 2의 결과 값 차이가 왜 있는가?
+/* 
+answer : scope 영역의 차이 때문
+var는 function-scope / let은 block-scope 의 차이가 있다 
+여기서 var는 아래와 같은 예시의 참조값을 받고 있는다(즉 비동기시 출력되는 참조값이 다 돌아진 상태의 값(7)이다)
+      (i): 참조값 = 7
+  ---------
+  |   |   |
+  0   1   2 : index
+하지만 let의 경우 참조값의 범위가 block-scope단위로 각 index의 값이 저장된 상태의 참조값을 받고 출력한다
+      (i): 참조값 = 1, 2, 3 ....
+  ---------
+  |   |   |
+  0   1   2 : index
+*/
+// // case 1:
 const asyncRun = (arr, fn) => {
   for (var i = 0; i < arr.length; i++) {
     setTimeout(() => {
@@ -45,21 +60,20 @@ const asyncRun = (arr, fn) => {
 }
 asyncRun(baseData, idx => console.log(idx));
 
-// case 2:
-// const asyncRun2 = (arr, fn) => {
-//   for (let i = 0; i < arr.length; i++) {
-//     setTimeout(() => {
-//       fn(i);
-//     }, 1000);
-//   }
-// }
-// asyncRun2(baseData, idx => console.log(idx));
+// // case 2:
+const asyncRun2 = (arr, fn) => {
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(() => {
+      fn(i);
+    }, 1000);
+  }
+}
+asyncRun2(baseData, idx => console.log(idx));
 
 // case 3: 
 // const asyncRun3 = (arr, fn) => {
-//   arr.forEach((v,i) => {
+//   arr.forEach((v, i) => {
 //     setTimeout(() => {
-//       debugger;
 //       fn(i);
 //     }, 1000);
 //   });
@@ -89,3 +103,60 @@ asyncRun(baseData, idx => console.log(idx));
 // call stack에서 setTimeout이 없어지고, 그 다음 animate함수가 없어지고, global Context가 없어져 call stack 이 비어지면
 // Event Loop가 Queue에 담겨진 animate함수를 끌어다 call stack에 옮겨지고 animate()함수가 실행된다.
 // 다시 animate() 함수가 실행되면 그 안에 다시 setTimeout이 실행되고 위와 반복되어 끝나지 않고 계속 진행된다.
+
+
+/* ============================================================================================================ */
+// forEach 만들어 보기~(09.20 일자)
+// const a = [1, 2, 3, 4, 5];
+
+// function forEach(a) {
+//   for (let i = 0; i < a.length; i++) {
+//     console.log(a[i])
+//   }
+// }
+
+// forEach(a);
+
+// 동기 & 비동기를 설명하시오!
+const baseDataArr = [1, 2, 3, 4, 5, 6, 100];
+
+const asyncRunExp = (arr, fn) => {
+  arr.forEach((v, i) => {
+    setTimeout(() => {
+      setTimeout(() => {
+        console.log("cb 2");
+        fn(i)
+      }, 2000);
+      console.log("cb 1", v);
+    }, 2000);
+    console.log("forEach")
+  });
+  console.log("async")
+}
+
+asyncRunExp(baseDataArr, idx => console.log(idx));
+
+// const baseData = [1, 2, 3, 4, 5, 6, 100];
+
+// function sync() {
+//   baseData.forEach((v, i) => {
+//     console.log("sync ", i);
+//   });
+// }
+
+// const asyncRun = (arr, fn) => {
+//   arr.forEach((v, i) => {
+//     setTimeout(() => fn(i), 1000);
+//   });
+// }
+
+
+// function sync2() {
+//   baseData.forEach((v, i) => {
+//     console.log("sync 2 ", i);
+//   });
+// }
+
+// asyncRun(baseData, idx => console.log(idx))
+// sync();
+// sync2();
