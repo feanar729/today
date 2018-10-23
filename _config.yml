@@ -14,6 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 theme: jekyll-theme-so-simple
+# remote_theme: gem "feanar729.github.io", group: : jekyll_plugins
+
 # remote_theme: mmistakes/so-simple-theme
 locale: en-US
 title: "Leo Today I Learned(TIL)"
